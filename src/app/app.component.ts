@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { Product } from './products.models'
 
 @Component({
-  selector: 'app-root',
+  selector: 'my-app',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
