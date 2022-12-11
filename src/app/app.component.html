@@ -1,0 +1,101 @@
+<h1>ngSwitch</h1>
+<input type="text" [(ngModel)]="Person.name" />
+<div [ngSwitch]="Person.name">
+
+  <p *ngSwitchCase="'Luz Dary'"> Soy Luz Dary </p>
+  <p *ngSwitchCase="'Matias'"> Soy Matias</p>
+  <p *ngSwitchCase="'Sebastian'"> Soy Sebastian</p>
+  <p *ngSwitchDefault> No hace match </p>
+
+</div>
+<!--
+  <p *ngIf="Person.name == 'Luz Dary'"> Soy Luz Dary </p>
+<p *ngIf="Person.name == 'Matias'"> Soy Matias</p>
+<p *ngIf="Person.name == 'Sebastian'"> Soy Sebastian</p>
+  -->
+
+
+<hr />
+
+<h1> ngFor Objs</h1>
+<div>
+  <div *ngFor="let product of products">
+    <img width="250" [src]="product.image" alt="image" />
+    <h2>{{product.price}}</h2>
+    <p>{{product.name}}</p>
+  </div>
+
+</div>
+<hr />
+
+<h1>ngFor </h1>
+<button (click)="addName()">Add Name </button>
+<input type="text" [(ngModel)]="NewName" />
+
+<ul>
+  <li *ngIf="names.length == 0">No hay Nombres</li>
+  <li *ngFor="let name of names; index as i">
+    {{i}} {{name}}
+    <button (click)="DeleteName(i)">Delete</button>
+
+  </li>
+
+</ul>
+
+<hr />
+
+<h1>ngIf</h1>
+<input type="text" [(ngModel)]="Person.name" />
+
+<p *ngIf="Person.name == 'Luz Dary' && Person.age === 41; else elseBlock"> Soy Luz Dary </p>
+<p *ngIf="Person.name == 'Daniela'"> Soy Daniela </p>
+
+<ng-template #elseBlock>
+  <p>Bloque else </p>
+
+</ng-template>
+<hr />
+
+<h1>ngModel</h1>
+<input type="text" required #nameInput="ngModel" [(ngModel)]="Person.name" />
+<p>Nombre = {{Person.name}}</p>
+<p>Valid: = {{nameInput.valid}}</p>
+
+<input type="number" max="18" min="10" required #ageInput="ngModel" [(ngModel)]="Person.age" />
+<p>Edad = {{Person.age}}</p>
+<p>Valid: = {{ageInput.valid}}</p>
+
+
+<hr />
+
+<h1>Eventos</h1>
+<button [disabled]="btnDisable">Enviar</button>
+<button (click)="toggleButton()">Toggle Button</button>
+
+<p>Edad = {{Person.age}}</p>
+<button (click)="increaseAge()">Age ++</button>
+<hr />
+
+<div class="box" (scroll)="onScroll($event)">
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eleifend placerat rutrum. Aliquam dignissim interdum rhoncus. Nullam a vehicula massa. In sollicitudin tortor sit amet velit tristique, et pellentesque sem feugiat. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur blandit pellentesque neque, non dapibus ipsum venenatis et. Aliquam porttitor dolor a orci iaculis, ut varius felis convallis. Etiam ligula tortor, consequat a nisl vitae, ornare tristique justo. Phasellus nec arcu mauris. Vivamus posuere convallis diam, non condimentum diam aliquam id. Sed luctus non nibh non euismod. Phasellus non placerat magna. Praesent volutpat nunc vitae sagittis mattis. Aliquam bibendum lorem id erat fermentum placerat.</p>
+</div>
+
+<input type="text" [value]="Person.name" (keyup)="changeName($event)" />
+<p>Nombre = {{Person.name}}</p>
+
+<hr />
+
+<h1>Propiedades</h1>
+<button [disabled]="btnDisable">Enviar</button>
+<input type="text" [value]="Person.name" />
+<progress max="100" [value]="Person.age"></progress>
+<img width="200" [src]="Person.avatar" />
+
+<hr />
+
+<h1>Hola Mundo</h1>
+<h2>{{ 'Hola Mundo'.repeat(5) }}</h2>
+<p> 3 + 3 = {{ 3 +3 }}</p>
+<h3>Hola, soy {{name}}, tengo {{age}} años</h3>
+
+<img src={{img}} alt="image" />
